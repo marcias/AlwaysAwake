@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Always Awake App</string>
-    <string name="how_to_use_text">Always Alwake App makes easier to use some resources found on internet to inspire your drawing or painting. With Always Awayke you don\'t need to change your device\'s setup to keep visor alive for longer time than usual. Just share or send the resource and choose Always Awake App.</string>
+    <string name="app_name">Always Awake</string>
+    <string name="how_to_use_text">Using Always Awake is very simple. Just go to the photo gallery, site or application that contains the content you want the screen not goes off and press to share or sent the content and then press the Always Awake icon.</string>
+    <string name="how_to_use_tip">Tip: If the application or site for any reason doesn\'t allow you to share/send its content, you can print screen and then go to the device\'s photo gallery and then share de content with Always Awake</string>
     <string name="no_image_was_found">No image was found</string>
 </resources>
