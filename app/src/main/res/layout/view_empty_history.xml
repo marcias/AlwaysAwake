@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_mood_bad"
+            android:layout_gravity="center_horizontal"/>
+
+    <TextView
+            android:id="@+id/tv_img_no_found"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_history_was_found"
+            android:textColor="@color/darkGray"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"/>
+
+    <Button
+            android:id="@+id/btn_learn_how_to_use"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Learn how to use"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/darkGray"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:textAllCaps="false"/>
+</LinearLayout>
