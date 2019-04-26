@@ -8,6 +8,7 @@
         android:orientation="vertical">
 
     <fragment
+            android:id="@+id/fragment_how_to_use_container"
             android:name="com.msc.dev.alwaysawakeapp.howtouse.HowToUseFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

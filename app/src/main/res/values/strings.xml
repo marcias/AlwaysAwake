@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">Always Awake</string>
-    <string name="how_to_use_text">Using Always Awake is very simple. Just go to the photo gallery, site or application that contains the content you want the screen not goes off and press to share or sent the content and then press the Always Awake icon.</string>
+
+    <!-- how to use activity -->
+    <string name="how_to_use_text">Go to the photo gallery, site or application with the content you want the screen not turns off and press "share" or "send" button and then press the Always Awake icon.</string>
     <string name="how_to_use_tip">Tip: If the application or site for any reason doesn\'t allow you to share/send its content, you can print screen and then go to the device\'s photo gallery and then share de content with Always Awake</string>
+
+    <!-- activity awake -->
     <string name="no_image_was_found">No image was found</string>
+
+    <!-- activity gallery -->
+    <string name="no_history_was_found">No history of work was found</string>
+    <string name="how_to_use">How to use</string>
 </resources>
