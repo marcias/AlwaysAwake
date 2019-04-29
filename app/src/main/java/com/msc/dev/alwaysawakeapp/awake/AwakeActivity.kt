@@ -1,12 +1,11 @@
 package com.msc.dev.alwaysawakeapp.awake
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.os.Parcelable
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.view.KeyEvent
 import android.view.WindowManager
-import com.msc.dev.alwaysawakeapp.Constants
 import com.msc.dev.alwaysawakeapp.R
 
 
@@ -16,34 +15,33 @@ class AwakeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_awake)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        verifyIntentType()
+        verifyIntentType(intent)
     }
 
-    fun initFragment() {
-        var fragment = AwakeFragment()
-        val args = Bundle()
-        args.putString(Constants.EXTRA_IMAGE_URI, getUriFromIntent())
-        fragment.arguments = args
+    fun initFragment(fragment: Fragment) {
         var transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_container, fragment)
         transaction.commit()
     }
 
-    fun verifyIntentType() {
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        verifyIntentType(intent)
+    }
+
+    fun verifyIntentType(intent: Intent?) {
         when {
             intent?.action == Intent.ACTION_SEND -> {
                 if (intent.type.startsWith("image")) {
-                    initFragment()
+                    initFragment(AwakeFragment.newInstance(intent))
+                } else if ("text/plain" == intent.type) {
+                    initFragment(AwakeWebviewFragment.newInstance(intent))
                 }
             }
         }
     }
 
-    fun getUriFromIntent(): String {
-        var uri = intent.getParcelableExtra<Parcelable>(Intent.EXTRA_STREAM)
-        (uri as? Uri?).let {
-            return uri.toString()
-        }
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        return super.onKeyDown(keyCode, event)
     }
-
 }
