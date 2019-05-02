@@ -4,16 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Patterns
-import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 import com.msc.dev.alwaysawakeapp.Constants
 import com.msc.dev.alwaysawakeapp.R
 import kotlinx.android.synthetic.main.fragment_awake_webview.*
-import java.util.regex.Pattern
+import android.widget.Toast
 
 
 class AwakeWebviewFragment : Fragment(), AwakeContract.View {
@@ -40,11 +38,12 @@ class AwakeWebviewFragment : Fragment(), AwakeContract.View {
         webView.settings.useWideViewPort = true
         webView.settings.loadWithOverviewMode = true
         webView.settings.useWideViewPort = true
+        webView.settings.domStorageEnabled = true
         webView.loadUrl(urlStr)
     }
 
     override fun showImageError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(activity?.applicationContext, getString(R.string.not_possible_load), Toast.LENGTH_SHORT).show()
     }
 
     companion object {
@@ -62,18 +61,33 @@ class AwakeWebviewFragment : Fragment(), AwakeContract.View {
 
         private fun getUrlFromString(strContainingUrl: String): String? {
             val m = Patterns.WEB_URL.matcher(strContainingUrl)
-            if (m.find()) {
-                return strContainingUrl.substring(m.start(), m.end())
-            } else {
-                return null
+            return when (m.find()) {
+                true -> strContainingUrl.substring(m.start(), m.end())
+                false -> null
             }
         }
     }
 
-    private class AwakeWebViewClient : WebViewClient() {
+    private inner class AwakeWebViewClient : WebViewClient() {
         override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
             view?.loadUrl(url)
             return true
         }
+
+        override fun onLoadResource(view: WebView?, url: String?) {
+            super.onLoadResource(view, url)
+            progress.visibility = View.VISIBLE
+
+        }
+        override fun onPageFinished(view: WebView?, url: String?) {
+            super.onPageFinished(view, url)
+            progress.visibility = View.GONE
+        }
+
+        override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
+            super.onReceivedError(view, request, error)
+            presenter.errorLoadingUrl()
+        }
+
     }
 }

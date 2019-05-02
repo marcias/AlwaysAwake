@@ -15,4 +15,8 @@ class AwakePresenter : AwakeContract.Presenter {
         }
     }
 
+    override fun errorLoadingUrl() {
+        view?.showImageError()
+    }
+
 }
