@@ -8,7 +8,15 @@ class AwakePresenter : AwakeContract.Presenter {
     }
 
     override fun setImageData(imageUri: String) {
-        view?.showImage(imageUri)
+        if(imageUri != null && imageUri.length > 0) {
+            view?.showImage(imageUri)
+        } else {
+            view?.showImageError()
+        }
+    }
+
+    override fun errorLoadingUrl() {
+        view?.showImageError()
     }
 
 }

@@ -11,4 +11,5 @@
     <!-- activity gallery -->
     <string name="no_history_was_found">No history of work was found</string>
     <string name="how_to_use">How to use</string>
+    <string name="not_possible_load">Not possible to load this url</string>
 </resources>

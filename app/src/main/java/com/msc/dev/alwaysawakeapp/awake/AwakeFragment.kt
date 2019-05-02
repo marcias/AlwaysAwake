@@ -1,7 +1,9 @@
 package com.msc.dev.alwaysawakeapp.awake
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Parcelable
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -26,11 +28,23 @@ class AwakeFragment : Fragment(), AwakeContract.View {
 
     override fun showImage(uriStr: String) {
         var uriImage = Uri.parse(uriStr)
-        iv_image.setImageURI(uriImage)
+        pv_image.setImageURI(uriImage)
     }
 
     override fun showImageError() {
         tv_img_no_found.visibility = View.VISIBLE
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance(intent: Intent?): AwakeFragment {
+            var uri = intent?.getParcelableExtra<Parcelable>(Intent.EXTRA_STREAM)
+            var bundle = Bundle()
+            bundle.putString(Constants.EXTRA_IMAGE_URI, uri.toString())
+            var fragment = AwakeFragment()
+            fragment.arguments = bundle
+            return fragment
+        }
     }
 
 }

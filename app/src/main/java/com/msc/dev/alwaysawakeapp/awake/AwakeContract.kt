@@ -9,6 +9,7 @@ class AwakeContract {
     interface Presenter {
         fun setView(view: View)
         fun setImageData(imageUri: String)
+        fun errorLoadingUrl()
     }
 
 }
