@@ -4,8 +4,8 @@
              android:layout_height="match_parent">
 
     <fragment
-            android:id="@+id/fragment_history_container"
-            android:name="com.msc.dev.alwaysawakeapp.history.HistoryFragment"
+            android:id="@+id/fragment_no_image_container"
+            android:name="com.msc.dev.alwaysawakeapp.noimage.NoImageFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
