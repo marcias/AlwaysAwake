@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Always Awake</string>
+
+    <string name="learn_how_to_use">Aprenda como usar</string>
+
+    <!-- how to use activity -->
+    <string name="how_to_use_text">Vá até a galeria de fotos, site ou aplicação abra o conteúdo e aperte o botão de  "compartilhar" ou "enviar" e então selecione o ícone da aplicação "Always Awake"</string>
+    <string name="how_to_use_tip">Dica: Se a aplicação ou site por alguma razão não permite compartilhar/enviar o conteúdo, é possivel tirar print da tela e então ir até a galeria de fotos do celular e compartilhar esta imagem com o Always Awake</string>
+    <!-- activity awake -->
+    <string name="no_image_was_found">Nenhuma imagem encontrada</string>
+
+    <!-- activity gallery -->
+    <string name="no_image_to_show">Sem imagens para exibir</string>
+    <string name="how_to_use">Como usar</string>
+    <string name="not_possible_load">Nâo é possível carregar a url</string>
+</resources>

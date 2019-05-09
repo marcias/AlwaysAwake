@@ -26,8 +26,8 @@ class AwakeFragment : Fragment(), AwakeContract.View {
         presenter.setImageData(arguments?.getString(Constants.EXTRA_IMAGE_URI)!!)
     }
 
-    override fun showImage(uriStr: String) {
-        var uriImage = Uri.parse(uriStr)
+    override fun showImage(imageSource: String) {
+        var uriImage = Uri.parse(imageSource)
         pv_image.setImageURI(uriImage)
     }
 

@@ -13,7 +13,6 @@ import com.msc.dev.alwaysawakeapp.R
 import kotlinx.android.synthetic.main.fragment_awake_webview.*
 import android.widget.Toast
 
-
 class AwakeWebviewFragment : Fragment(), AwakeContract.View {
 
     var presenter: AwakePresenter = AwakePresenter()
@@ -28,7 +27,7 @@ class AwakeWebviewFragment : Fragment(), AwakeContract.View {
         presenter.setImageData(arguments?.getString(Constants.EXTRA_URL)!!)
     }
 
-    override fun showImage(urlStr: String) {
+    override fun showImage(imageSource: String) {
         val webView: WebView = wv_content
         webView.webViewClient = AwakeWebViewClient()
         webView.settings.javaScriptEnabled = true
@@ -39,7 +38,7 @@ class AwakeWebviewFragment : Fragment(), AwakeContract.View {
         webView.settings.loadWithOverviewMode = true
         webView.settings.useWideViewPort = true
         webView.settings.domStorageEnabled = true
-        webView.loadUrl(urlStr)
+        webView.loadUrl(imageSource)
     }
 
     override fun showImageError() {
@@ -74,11 +73,6 @@ class AwakeWebviewFragment : Fragment(), AwakeContract.View {
             return true
         }
 
-        override fun onLoadResource(view: WebView?, url: String?) {
-            super.onLoadResource(view, url)
-            progress.visibility = View.VISIBLE
-
-        }
         override fun onPageFinished(view: WebView?, url: String?) {
             super.onPageFinished(view, url)
             progress.visibility = View.GONE
